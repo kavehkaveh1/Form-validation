@@ -56,6 +56,66 @@ function App() {
             />
           </p>
         </fieldset>
+        <fieldset>
+          <legend>personal data (optional)</legend>
+          <p>
+            <label htmlFor="number">your lucky number : </label>
+            <input type="number" name="number" id="number" max={100} min={0} />
+          </p>
+          <p>
+            <label htmlFor="drinks"> favorite drinks : </label>
+            <select name="drink" id="drinks">
+              <optgroup label="cold drinks">
+                <option value="iceTea">iceTea</option>
+                <option value="orangeJuice">orangeJuice</option>
+                <option value="others">others</option>
+              </optgroup>
+              <optgroup label="hot drinks">
+                <option value="tea">tea</option>
+                <option value="coffee">coffee</option>
+                <option value="others">others</option>
+              </optgroup>
+            </select>
+          </p>
+          <div>
+            <p>choose your pet : </p>
+            <p>
+              <input type="checkbox" name="pets" id="dog" />
+              <label htmlFor="dog">dog</label>
+            </p>
+            <p>
+              <input type="checkbox" name="pets" id="cat" />
+              <label htmlFor="cat">cat</label>
+            </p>
+            <p>
+              <input type="checkbox" name="pets" id="fish" />
+              <label htmlFor="fish">fish</label>
+            </p>
+            <p>
+              <input type="checkbox" name="pets" id="others" />
+              <label htmlFor="others">others</label>
+            </p>
+          </div>
+          <div>
+            <p>choose your favorite food : </p>
+            <p>
+              <input type="radio" name="food" id="pizza" />
+              <label htmlFor="pizza">pizza</label>
+            </p>
+            <p>
+              <input type="radio" name="food" id="kabab" />
+              <label htmlFor="kabab">kabab</label>
+            </p>
+            <p>
+              <input type="radio" name="food" id="khoresh" />
+              <label htmlFor="khoresh">khoresh</label>
+            </p>
+            <p>
+              <input type="radio" name="food" id="others" />
+              <label htmlFor="others">others</label>
+            </p>
+          </div>
+        </fieldset>
       </form>
     </div>
   );
