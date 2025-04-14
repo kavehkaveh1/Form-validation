@@ -61,7 +61,7 @@ function App() {
     },
   ];
   const handleSubmit = (e) => {
-    e.preventDefualt();
+    e.preventDefault();
   };
   console.log(values);
   const onChange = (e) => {
