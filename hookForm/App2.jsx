@@ -6,12 +6,18 @@ function App() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    setError,
   } = useForm();
   const onSubmit = async (data) => {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
-    console.log(data);
+    try {
+      await new Promise((resolve) => {
+        setTimeout(resolve, 1000);
+      });
+      console.log(data);
+      throw errors();
+    } catch (error) {
+      setError("email", { message: "this email is already taken" });
+    }
   };
   return (
     <div>
@@ -58,10 +64,10 @@ function App() {
             {...register("email", {
               required: "email is required",
             })}
-            id="password"
+            id="email"
           />
-          {errors.password && (
-            <div className="error"> {errors.password.message} </div>
+          {errors.email && (
+            <div className="error"> {errors.email.message} </div>
           )}
         </div>
 
