@@ -5,9 +5,12 @@ function App() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    await new Promise((resolve) => {
+      setTimeout(resolve, 1000);
+    });
     console.log(data);
   };
   return (
@@ -49,7 +52,9 @@ function App() {
           )}
         </div>
         <div>
-          <button type="submit">submit</button>
+          <button disabled={isSubmitting} type="submit">
+            {isSubmitting ? "...loading" : "submit"}
+          </button>
         </div>
       </form>
     </div>
