@@ -1,12 +1,23 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./style.css";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 function App() {
+  const schema = z.object({
+    userName: z
+      .string()
+      .min(3, "Username must be at least 3 characters")
+      .max(16, "Username must be at most 16 characters")
+      .regex(/^[A-Za-z0-9]+$/, "No special characters allowed!"),
+
+    password: z.string().min(8, "Password must be at least 8 characters"),
+  });
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm();
+  } = useForm({ resolver: zodResolver(schema) });
   const onSubmit = async (data) => {
     await new Promise((resolve) => {
       setTimeout(resolve, 1000);
@@ -18,35 +29,14 @@ function App() {
       <form action="/" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="userName">userName : </label>
-          <input
-            type="text"
-            {...register("userName", {
-              required: "username is required",
-              pattern: {
-                value: /^[A-Za-z0-9]{3,16}$/,
-                message:
-                  "Username should be 3-16 characters and shouldn't include any special characters!",
-              },
-            })}
-            id="userName"
-          />
+          <input type="text" {...register("userName")} id="userName" />
           {errors.userName && (
             <div className="error"> {errors.userName.message} </div>
           )}
         </div>
         <div>
           <label htmlFor="password">password : </label>
-          <input
-            type="password"
-            {...register("password", {
-              required: "password is required",
-              minLength: {
-                value: 8,
-                message: "password must have at leaste 8 charachters",
-              },
-            })}
-            id="password"
-          />
+          <input type="password" {...register("password")} id="password" />
           {errors.password && (
             <div className="error"> {errors.password.message} </div>
           )}
