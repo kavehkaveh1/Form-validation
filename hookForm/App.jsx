@@ -35,7 +35,7 @@ function App() {
           )}
         </div>
         <div>
-          <label htmlFor="password">passwordf : </label>
+          <label htmlFor="password">password : </label>
           <input
             type="password"
             {...register("password", {

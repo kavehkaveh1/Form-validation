@@ -35,7 +35,7 @@ function App() {
           )}
         </div>
         <div>
-          <label htmlFor="password">passwordf : </label>
+          <label htmlFor="password">password : </label>
           <input
             type="password"
             {...register("password", {
@@ -51,6 +51,20 @@ function App() {
             <div className="error"> {errors.password.message} </div>
           )}
         </div>
+        <div>
+          <label htmlFor="email">email : </label>
+          <input
+            type="email"
+            {...register("email", {
+              required: "email is required",
+            })}
+            id="password"
+          />
+          {errors.password && (
+            <div className="error"> {errors.password.message} </div>
+          )}
+        </div>
+
         <div>
           <button disabled={isSubmitting} type="submit">
             {isSubmitting ? "...loading" : "submit"}
