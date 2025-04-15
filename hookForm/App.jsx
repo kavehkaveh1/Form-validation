@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
+import "./style.css";
 function App() {
   const {
     register,
@@ -22,7 +22,9 @@ function App() {
             })}
             id="userName"
           />
-          {errors.userName && <div> {errors.userName.message} </div>}
+          {errors.userName && (
+            <div className="error"> {errors.userName.message} </div>
+          )}
         </div>
         <div>
           <label htmlFor="password">passwordf : </label>
@@ -33,7 +35,9 @@ function App() {
             })}
             id="password"
           />
-          {errors.password && <div> {errors.password.message} </div>}
+          {errors.password && (
+            <div className="error"> {errors.password.message} </div>
+          )}
         </div>
         <div>
           <button type="submit">submit</button>
