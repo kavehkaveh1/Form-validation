@@ -10,6 +10,8 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError({});
+    setUser("");
+    setPassword("");
 
     let newErrors = {};
 
@@ -32,6 +34,7 @@ function App() {
             type="text"
             id="userName"
             name="username"
+            value={user}
             onChange={(e) => setUser(e.target.value)}
             required
             placeholder="userName"
@@ -45,6 +48,7 @@ function App() {
             type="password"
             name="password"
             id="password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />

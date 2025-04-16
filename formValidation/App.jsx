@@ -62,6 +62,13 @@ function App() {
   ];
   const handleSubmit = (e) => {
     e.preventDefault();
+    // setValues({
+    //   userName: "",
+    //   birthDay: "",
+    //   Email: "",
+    //   password: "",
+    //   confrimPassword: "",
+    // });
   };
   console.log(values);
   const onChange = (e) => {
@@ -86,4 +93,3 @@ function App() {
 }
 
 export default App;
-//`^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[A-zA-Z0!@#$%^&*]{8-20}$`
