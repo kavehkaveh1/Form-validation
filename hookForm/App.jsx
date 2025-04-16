@@ -5,13 +5,16 @@ function App() {
   const {
     register,
     handleSubmit,
+    reset,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm();
-  const onSubmit = async (data) => {
+  const onSubmit = async () => {
     await new Promise((resolve) => {
       setTimeout(resolve, 1000);
     });
-    console.log(data);
+    console.log(watch());
+    reset();
   };
   return (
     <div>

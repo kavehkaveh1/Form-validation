@@ -7,13 +7,14 @@ function App() {
     handleSubmit,
     formState: { errors, isSubmitting },
     setError,
+    watch,
   } = useForm();
   const onSubmit = async (data) => {
     try {
       await new Promise((resolve) => {
         setTimeout(resolve, 1000);
       });
-      console.log(data);
+      console.log(watch());
       throw errors();
     } catch (error) {
       setError("email", { message: "this email is already taken" });
